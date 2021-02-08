@@ -34,7 +34,38 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        {
+            $this->validate($request, [
+                'name' => 'required',
+                'city' => 'required',
+                'adresse' => 'required|string',
+                'code' => 'required|string|min:5|max:5',
+                'phone' => 'required|string|min:10|max:10',
+                'price' => 'required|string',
+                'cleaning_price' => 'required|string',
+                'area' => 'required',
+                'kitchen' => 'required',
+    
+            ]);
+    
+            $user = auth()->user();
+
+            Etablissement::create([
+                'name' => $request->name,
+                'city' => $request->city,
+                'adresse' => $request->adresse,
+                'code' => $request->code,
+                'phone' => $request->phone,
+                'price' => $request->price,
+                'cleaning_price' => $request->cleaning_price,
+                'area' => $request->area,
+                'kitchen' => $request->kitchen,
+                'description' => $request->description,
+                'user_id' -> $user->id
+
+            ]);
+            return back()->with("success");
+        }
     }
 
     /**
