@@ -64,7 +64,7 @@ class EtablissementController extends Controller
                 'area' => $request->area,
                 'kitchen' => $request->kitchen,
                 'description' => $request->description,
-                'user_id' -> $user->id
+                'user_id' => $user->id
 
             ]);
             return back()->with("success");
