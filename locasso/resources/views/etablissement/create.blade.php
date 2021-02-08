@@ -1,4 +1,4 @@
-@extends('layout.app') @section('content')
+@extends('layouts.app') @section('content')
 
 <div class="container">
     <div class="row justify-content-center">
@@ -10,20 +10,20 @@
 
                 <div class="card-body">
                     <form
-                        action="{{ route('etablissement.store') }}"
+                        action="{{ route('etablisssement.store') }}"
                         method="post"
                     >
                         @csrf
                         <div class="form-group row">
                             <label
-                                for="Name"
+                                for="name"
                                 class="col-md-4 col-form-label text-md-right"
-                                >{{ __("E-Mail Address") }}</label
+                                >{{ __("Nom") }}</label
                             >
 
                             <div class="col-md-6">
                                 <input
-                                    id="Name"
+                                    id="name"
                                     type="text"
                                     class="form-control @error('name') is-invalid @enderror"
                                     name="name"
@@ -70,6 +70,35 @@
                             </div>
                         </div>
 
+                        {{-- Téléphone --}}
+
+                        <div class="form-group row">
+                            <label
+                                for="phone"
+                                class="col-md-4 col-form-label text-md-right"
+                                >{{ __("Téléphone") }}</label
+                            >
+
+                            <div class="col-md-6">
+                                <input
+                                    id="phone"
+                                    type="number"
+                                    class="form-control @error('phone') is-invalid @enderror"
+                                    name="phone"
+                                    value="{{ old('phone') }}"
+                                    required
+                                    autocomplete="phone"
+                                    autofocus
+                                />
+
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         {{-- Ville --}}
 
                         <div class="form-group row">
@@ -103,24 +132,24 @@
 
                         <div class="form-group row">
                             <label
-                                for="address"
+                                for="adress"
                                 class="col-md-4 col-form-label text-md-right"
                                 >{{ __("Adresse") }}</label
                             >
 
                             <div class="col-md-6">
                                 <input
-                                    id="address"
+                                    id="adress"
                                     type="text"
-                                    class="form-control @error('address') is-invalid @enderror"
-                                    name="address"
-                                    value="{{ old('address') }}"
+                                    class="form-control @error('adress') is-invalid @enderror"
+                                    name="adress"
+                                    value="{{ old('adress') }}"
                                     required
-                                    autocomplete="address"
+                                    autocomplete="adress"
                                     autofocus
                                 />
 
-                                @error('address')
+                                @error('adress')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -190,25 +219,19 @@
 
                         <div class="form-group row">
                             <label
-                                for="cuisine"
+                                for="kitchen"
                                 class="col-md-4 col-form-label text-md-right"
                             >
                                 {{ __("As une cuisine") }}
                             </label>
 
                             <div class="col-md-6">
-                                <input
-                                    id="cuisine"
-                                    type="text"
-                                    class="form-control @error('cuisine') is-invalid @enderror"
-                                    name="cuisine"
-                                    value="{{ old('cuisine') }}"
-                                    required
-                                    autocomplete="cuisine"
-                                    autofocus
-                                />
+                                <select class="form-control" id="kitchen">
+                                    <option>Oui</option>
+                                    <option>Non</option>
+                                </select>
 
-                                @error('cuisine')
+                                @error('kitchen')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -224,8 +247,7 @@
                                 class="col-md-4 col-form-label text-md-right"
                                 >{{ __("Prix") }}</label
                             >
-
-                            <div class="col-md-6">
+                            <div class="input-group col-md-6">
                                 <input
                                     id="prix"
                                     type="number"
@@ -236,6 +258,13 @@
                                     autocomplete="prix"
                                     autofocus
                                 />
+                                <div class="input-group-append">
+                                    <span
+                                        class="input-group-text"
+                                        id="inputGroupAppend"
+                                        >€</span
+                                    >
+                                </div>
 
                                 @error('prix')
                                 <span class="invalid-feedback" role="alert">
@@ -254,19 +283,26 @@
                                 >{{ __("Prix du ménage") }}</label
                             >
 
-                            <div class="col-md-6">
+                            <div class="input-group col-md-6">
                                 <input
-                                    id="price-menage"
-                                    type="text"
-                                    class="form-control @error('price-menage') is-invalid @enderror"
-                                    name="price-menage"
-                                    value="{{ old('price-menage') }}"
+                                    id="cleaning_price"
+                                    type="number"
+                                    class="form-control @error('cleaning_price') is-invalid @enderror"
+                                    name="cleaning_price"
+                                    value="{{ old('cleaning_price') }}"
                                     required
-                                    autocomplete="price-menage"
+                                    autocomplete="cleaning_price"
                                     autofocus
                                 />
+                                <div class="input-group-append">
+                                    <span
+                                        class="input-group-text"
+                                        id="inputGroupAppend"
+                                        >€</span
+                                    >
+                                </div>
 
-                                @error('price-menage')
+                                @error('cleaning_price')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

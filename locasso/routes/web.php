@@ -26,4 +26,4 @@ Route::group(['middleware' => ['auth']], function() {
 
 });
 
-Route::resource('etablisssement', EtablissementController::class)->except(['create']);
+Route::resource('etablisssement', EtablissementController::class);

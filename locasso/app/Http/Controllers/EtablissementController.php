@@ -26,7 +26,7 @@ class EtablissementController extends Controller
      */
     public function create()
     {
-        //
+        return view('etablissement.create');
     }
 
     /**
@@ -48,9 +48,9 @@ class EtablissementController extends Controller
                 'cleaning_price' => 'required|string',
                 'area' => 'required',
                 'kitchen' => 'required',
-    
+
             ]);
-    
+
             $user = auth()->user();
 
             Etablissement::create([
