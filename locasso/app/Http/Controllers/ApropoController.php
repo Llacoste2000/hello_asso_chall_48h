@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Apropo;
 use Illuminate\Http\Request;
 
-class ReservationController extends Controller
+class ApropoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        return view('main_page.location');
+        return view('main_page.apropos');
 
     }
 
@@ -41,10 +42,10 @@ class ReservationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Apropo  $apropo
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Apropo $apropo)
     {
         //
     }
@@ -52,10 +53,10 @@ class ReservationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Apropo  $apropo
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Apropo $apropo)
     {
         //
     }
@@ -64,10 +65,10 @@ class ReservationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Apropo  $apropo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Apropo $apropo)
     {
         //
     }
@@ -75,10 +76,10 @@ class ReservationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Apropo  $apropo
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Apropo $apropo)
     {
         //
     }
