@@ -1,0 +1,19 @@
+#img-brand {
+    height: 25px;
+}
+
+#menu-main {
+    padding: 20px;
+}
+
+#navbar-menu {
+    li + li {
+        margin-left: 0.5rem;
+    }
+}
+
+.searchpage__formcontainer {
+    margin: 75px auto 25px auto;
+    width: 90%;
+    max-width: 980px;
+}
